@@ -45,35 +45,46 @@ class _MyHomePageState extends State<MyHomePage> {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            Row(
-              children: [
-                const Icon(Icons.arrow_back),
-                Text(widget.title),
-                const Icon(Icons.search),
-                const Icon(Icons.menu),
-              ],
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Icon(Icons.arrow_back),
+                  Text(widget.title),
+                  const Icon(Icons.search),
+                  const Icon(Icons.menu),
+                ],
+              ),
             ),
-            GoogleMap(
-              onMapCreated: _onMapCreated,
-              initialCameraPosition: CameraPosition(
-                target: _center,
-                zoom: 11.0,
+            SizedBox(
+              height: 400,
+              width: 400,
+              child: GoogleMap(
+                onMapCreated: _onMapCreated,
+                initialCameraPosition: CameraPosition(
+                  target: _center,
+                  zoom: 11.0,
+                ),
               ),
             ),
             Container(
               color: Colors.red,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Column(
-                    children: [
-                      Text(widget.title),
-                      Text(widget.title),
-                    ],
-                  ),
-                  const Icon(Icons.search),
-                ],
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Column(
+                      children: const [
+                        Text('Lorem Hotel'),
+                        Text('ipsum st.'),
+                      ],
+                    ),
+                    const Icon(Icons.arrow_circle_up_sharp),
+                  ],
+                ),
               ),
             ),
           ],
